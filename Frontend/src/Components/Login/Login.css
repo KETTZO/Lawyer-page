@@ -1,0 +1,155 @@
+.login{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /*background: rgb(52,152,219);
+    background: linear-gradient(-315deg, rgba(52,152,219,1) 55%, rgba(36,103,148,1) 100%);*/
+    background-color: #181818;
+}
+.cardlogin {
+  width: 60%;
+  height: 70%;
+  max-width: 60%;
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+  z-index: 1;
+  overflow: hidden; /* Importante para que el borde redondeado se aplique al box-shadow */
+  border-radius: 10px; /* Radio de borde de 10px */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+  .card {
+    padding: 2em;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  
+  .loginForm{
+  
+    background-color: black;
+    width: 50%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra verticalmente los elementos */
+    
+  }
+  
+  .loginImage{
+    background-color: white;
+    width: 50%;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-image: url(../../assets/ladyJustice.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+  }
+/*
+  .loginImage::before{
+    content: "";
+    position: absolute;
+    background-image: url(https://wallpapers.com/images/hd/blue-and-white-dentistry-clinic-jrsr958qb3pntyor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(5px) brightness(70%);
+    z-index: -1;
+  }*/
+  
+  .text-align{
+    margin-top: 50%;
+    margin-bottom: 50%;
+  }
+  .image-align{
+    margin-top: 10%; margin-bottom: 40%;
+  }
+  
+  input{
+    background-color: transparent;
+    border-left: transparent;
+    border-top: transparent;
+    border-right: transparent;
+  
+    height: 50px;
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+    border-image: linear-gradient(45deg, #3498db, #3498db) 1;
+    border-width: 3px;
+    /*-webkit-box-shadow: 0 0 0 30px black inset !important;
+    color: white !important;*/
+  }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgb(5, 5, 5) inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: gray;
+}
+
+  input:focus{
+    outline: none;
+  }
+  
+  .inputs{
+    margin-bottom: 50px;
+    width: 90%;
+  }
+  
+  .loginText{
+    text-align: left;
+    color: #FFD700;
+    font-size: 30px;
+  }
+  
+  .loginForm button{
+    width: 150px;
+    height: 35px;
+    margin: 10px;
+    background-color: #FFD700;
+    border: none;
+    color: black;
+    font-family: "Outfit", sans-serif;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  
+  
+  .image-align{
+    width: 50%;
+    float: left;
+    margin-top: 30px;
+  }
+  
+  .cardlogin h1{
+    font-size: 70px;
+    margin: 20px;
+    text-align: left;
+    color: white;
+ 
+  }
+  .cardlogin h3{
+    margin-top: 0px;
+    padding-top: 0px;
+    color: white;
+  }
+  
+  .msgError{
+    color: red;
+    position: absolute;
+    animation: fade-in 0.5s forwards;
+  }
+
+  .margin-login-register{
+    margin-top: 1rem;
+  }
+.SingupRedirect{
+  color: rgb(92, 92, 252);
+  text-decoration: none;
+}

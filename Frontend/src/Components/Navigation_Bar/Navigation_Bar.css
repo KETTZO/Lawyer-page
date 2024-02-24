@@ -1,0 +1,85 @@
+#root{
+    width: 100%;
+    padding: none;
+    /*background-color: #252525;*/
+    font-family: "Outfit", sans-serif;
+}
+
+body{
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+}
+.NavContainer{
+  background-color: #181818;
+  width: 100%;
+  display: flex;
+}
+nav {
+  overflow: hidden;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  margin: 0 auto;
+}
+  
+  /* Style the links inside the navigation bar */
+nav a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+  /* Change the color of links on hover */
+nav a:hover {
+    background-color: #0a0a0a;
+    color: white;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+  
+  /* Add a color to the active/current link */
+nav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+.logo{
+  padding-left: 10px;
+}
+.logo .link{
+  text-decoration: none;
+  color: white;
+}
+.userButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userButtons .link{
+
+  margin: 0 auto;
+  background-color: none;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #181818;
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFD700;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.userButtons .link:hover{
+  background-color: #0c0c0c;
+  color: #FFD700;
+  transition: 0.3s;
+}
