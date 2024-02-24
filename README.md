@@ -1,14 +1,14 @@
 COMMANDS
 
-npm create vite@latest
+1.npm create vite@latest
 
     -Framework React
   
     -Variant javascript
   
-npm install
+2.npm install
 
-To run the project use: npm run dev
+3.To run the project use: npm run dev
 
 
 
@@ -16,6 +16,6 @@ INSTALLS
 
 in frontend file
 
-    npm install react-router-dom
+    1.npm install react-router-dom
 
 In Backend file
