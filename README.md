@@ -10,6 +10,4 @@ in frontend file
 4.To run the project use: npm run dev
 
 In Backend file
-1.npm init -y
-2.npm i express
 3.to run the project use: node src/app.js
