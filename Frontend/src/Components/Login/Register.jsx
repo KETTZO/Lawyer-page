@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './Login.css'
 import Navigation_Bar from '../Navigation_Bar/Navigation_Bar'
 import { Link } from 'react-router-dom'
+import API_URL from '../../auth/constants'
 
 function Register() {
 
@@ -16,22 +17,42 @@ function Register() {
     console.log('Usuario inició sesión');
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault()
-    /*
-    if(nombre === '' || contra === ''){
-      setError(true)
-      return
-    }
-    else if(nombre === 'admin' || contra === 'admin'){
-      setError(false)
-      setUser([nombre])
-      return
+    if(checkUser(user)){
+      try {
+        setError(false);
+        const response = await fetch(`${API_URL}/Register`,{
+          method: 'POST',
+          headers:{
+              'Content-Type':'application/json'
+            },
+          body: JSON.stringify({
+            nombre,
+            email,
+            contra,
+            ConfirmContra,
+          })
+        });
+  
+        if(response.ok){
+          console.log('El usuario se registró correctamente');
+          setError(false);
+          goTo('/')
+        }
+        else{
+          const data = await response.json();
+          console.log('Ocurrió un error');
+          console.log(data);
+          setError(data.message);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
     else{
-      setError(true)
-      return
-    }*/
+      setError('Verifique el formato de la información');
+    }
     
   }
 
