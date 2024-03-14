@@ -10,11 +10,7 @@ in frontend file
 4.To run the project use: npm run dev
 
 In Backend file
-<<<<<<< Updated upstream
-=======
 1.npm init -y
 2.npm i express
 3.npm i cors
-
-> > > > > > > Stashed changes
-> > > > > > > 4.to run the project use: node src/app.js
+4.to run the project use: node src/app.js
