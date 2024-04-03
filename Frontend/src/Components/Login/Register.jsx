@@ -3,23 +3,24 @@ import './Login.css'
 import Navigation_Bar from '../Navigation_Bar/Navigation_Bar'
 import { Link } from 'react-router-dom'
 import API_URL from '../../auth/constants'
+import {checkUser} from '../../auth/checkUser'
+import { useNavigate } from 'react-router-dom';
 
-function Register() {
+export function Register() {
 
-  const [nombre, setNombre] = useState('')
+  const [name, setNombre] = useState('')
   const [email, setEmail] = useState('')
-  const [contra, setContra] = useState('')
-  const [ConfirmContra, setConfirmContra] = useState('')
+  const [password, setContra] = useState('')
+  const [Confirmpassword, setConfirmContra] = useState('')
   const [error, setError] = useState(false)
 
-  const SignupUser = () => {
-    // Código para iniciar sesión del usuario
-    console.log('Usuario inició sesión');
-  };
+  const user = ({name,email,password});
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
     if(checkUser(user)){
+      
       try {
         setError(false);
         const response = await fetch(`${API_URL}/Register`,{
@@ -28,17 +29,17 @@ function Register() {
               'Content-Type':'application/json'
             },
           body: JSON.stringify({
-            nombre,
+            name,
             email,
-            contra,
-            ConfirmContra,
+            password,
+            Confirmpassword,
           })
         });
   
         if(response.ok){
           console.log('El usuario se registró correctamente');
           setError(false);
-          goTo('/')
+          navigate("/Login");
         }
         else{
           const data = await response.json();
@@ -58,6 +59,7 @@ function Register() {
 
   return (
     <>
+    
     <Navigation_Bar />
       <div className='login'> 
       <div className="cardlogin">
@@ -74,31 +76,29 @@ function Register() {
       <form className='loginForm'
         onSubmit={handleSubmit}
       >
-        <h2 className='loginText'>Inicio de sesión</h2>
+        <h2 className='loginText'>Registro</h2>
         <div className='inputs'>
-            <input type="text" className='' placeholder='Correo electrónico'
+            <input type="email" className='' placeholder='Correo electrónico'
             value={email}
             onChange={e => setEmail(e.target.value)}
             />
             <br />
             <input type="text" className='' placeholder='Nombre Completo'
-            value={nombre}
+            value={name}
             onChange={e => setNombre(e.target.value)}
             />
             <br />
             <input type="password" className='' placeholder='Contraseña'
-            value={contra}
+            value={password}
             onChange={e => setContra(e.target.value)}
             />
             <input type="password" className='' placeholder='Confirmar Contraseña'
-            value={ConfirmContra}
+            value={Confirmpassword}
             onChange={e => setConfirmContra(e.target.value)}
             />
           {error && <p className='msgError'>Verifique usuario y/o contraseña</p>}
         </div>
-        <Link to='/Login' className='link'>
-          <button onClick={SignupUser}>Continuar</button>
-        </Link>
+          <button>Continuar</button>
         <Link to='/Login' className='SingupRedirect'>¿Ya tienes una cuenta?</Link>
       </form>
     </div>
@@ -106,11 +106,5 @@ function Register() {
     </>
   )
 }
-/*
-        <RouterLink to='/flicker'>
-          <button onClick={loginUser}>Continuar</button>
-        </RouterLink>
-        <br />
-        <RouterLink to='/signup'>¿Aún no tienes una cuenta?</RouterLink>
-        */
+
 export default Register

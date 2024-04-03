@@ -2,63 +2,52 @@ import express from 'express';
 //import { PrismaClient } from '@prisma/client'
 import {checkUser} from '../verifyInfo/checkUser.js';
 import bcrypt from 'bcrypt';
+import {User, Appointment} from '../DB/Schemas.js'
+//const connectToDatabase = require('./db');
 
 const router = express.Router();
 //const prisma = new PrismaClient();
 
 router.post("/", async (req, res) => {
   
-  const {name, lastName, username, email, password} = req.body;
+  const {name, email, password} = req.body;
 
-  if(!!!name || !!!lastName || !!!username || !!!email || !!!password){
+  if(!!!name || !!!email || !!!password){
     return res.status(400).json({ error: 'Fields are required' });
   }
   
   //create user
   try {
 
+    //connectToDatabase();
     const hashedPassword = await bcrypt.hash(password, 10);
-/*
-    const existingUser = await prisma.user.findUnique({
-      where: {
-        username,
-      },
-    });
 
-    if (existingUser) {
+    const emailInUse = await User.emailExists(email);
+
+    if (emailInUse) {
+      console.log('El correo electrónico ya está en uso');
       return res.status(400).json({ message: 'El usuario ya existe' });
-    }
+    } else {
+      if(checkUser(req.body)){
 
-    const existingEmail = await prisma.user.findUnique({
-      where: {
-        email,
-      },
-    });
-
-    if (existingEmail) {
-      return res.status(400).json({ message: 'El usuario ya existe' });
-    }
-*/
-    if(checkUser(req.body)){/*
-      const user = await prisma.user.create({
-        data: {
-          username,
+        // Registra un nuevo usuario
+        const newUser = new User({
+          email: email,
+          name: name,
           password: hashedPassword,
-          name,
-          lastName,
-          email,
-          avatar,
-        },
-      })*/;
-  
-      res.status(201).json({ message: 'Usuario registrado exitosamente' });
+        });
+
+        await newUser.save();
+        console.log('Usuario registrado exitosamente');
+        res.status(201).json({ message: 'Usuario registrado exitosamente' });
+      }
     }
-    else{
-      console.log('Formato de información incorrecto:');
-      return res.status(400).json({error: 'incorrect Format'});
-    }
+    //mongoose.disconnect(() => {console.log('Desconexión de la base de datos');});
     
   } catch (error) {
+
+    //mongoose.disconnect(() => {console.log('Desconexión de la base de datos');});
+
     console.error('Error al registrar usuario:', error);
     res.status(500).json({ error: 'Ocurrió un error al registrar el usuario' });
   }

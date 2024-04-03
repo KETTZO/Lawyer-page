@@ -153,3 +153,7 @@
   color: rgb(92, 92, 252);
   text-decoration: none;
 }
+
+button:hover{
+  cursor: pointer;
+}

@@ -17,7 +17,7 @@ export function checkUser(user) {
     if (!nameRegex.test(user.name)) {
       allCorrect = false;
     }
-  
+    
     return allCorrect;
   }
 
