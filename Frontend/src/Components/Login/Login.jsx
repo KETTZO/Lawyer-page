@@ -2,33 +2,55 @@ import { useState } from 'react'
 import './Login.css'
 import Navigation_Bar from '../Navigation_Bar/Navigation_Bar'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import API_URL from '../../auth/constants'
+import useLogin from '../../hooks/useLogin.jsx';
 
 function Login() {
 
-  const [nombre, setNombre] = useState('')
-  const [contra, setContra] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setpassword] = useState('')
   const [error, setError] = useState(false)
+  const {loginUser} = useLogin();
 
-  const loginUser = () => {
-    // Código para iniciar sesión del usuario
-    console.log('Usuario inició sesión');
-  };
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault()
-    /*
-    if(nombre === '' || contra === ''){
+    loginUser(email, password)
+    /*if(){
+      navigate("/");
+    }*/
+
+    //await loginUser(email, password);
+    /*if(email === '' || password === ''){
       setError(true)
       return
-    }
-    else if(nombre === 'admin' || contra === 'admin'){
-      setError(false)
-      setUser([nombre])
-      return
-    }
-    else{
-      setError(true)
-      return
+    }*/
+    /*try {
+      console.log('entra')
+      const response = await fetch(`${API_URL}/Login`,{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+          },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+
+      if(response.ok){
+        console.log('El usuario ingresó correctamente');
+        setError(false);
+        navigate("/");
+      }
+      else{
+        console.log('Ocurrió un error');
+        setError(true);
+      }
+    } catch (error) {
+      console.log(error);
     }*/
     
   }
@@ -54,19 +76,19 @@ function Login() {
         <h2 className='loginText'>Inicio de sesión</h2>
         <div className='inputs'>
           <input type="text" className='inputLogin' placeholder='Correo electrónico'
-            value={nombre}
-            onChange={e => setNombre(e.target.value)}
+            value={email}
+            required
+            onChange={e => setEmail(e.target.value)}
           />
           <br />
           <input type="password" className='inputLogin' placeholder='Contraseña'
-            value={contra}
-            onChange={e => setContra(e.target.value)}
+            value={password}
+            required
+            onChange={e => setpassword(e.target.value)}
           />
           {error && <p className='msgError'>Verifique usuario y/o contraseña</p>}
         </div>
-        <Link to='/' className='link'>
-          <button onClick={loginUser}>Continuar</button>
-        </Link>
+          <button>Continuar</button>
         <Link to='/Signup' className='SingupRedirect'>¿Aún no tienes una cuenta?</Link>
       </form>
     </div>

@@ -2,34 +2,46 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Login from './Components/Login/Login.jsx'
+import Navigation_Bar from './Components/Navigation_Bar/Navigation_Bar.jsx'
+import Homepage from './Components/Homepage/Homepage.jsx'
+import {createBrowserRouter, RouterProvider, useNavigate} from 'react-router-dom'
+import Register from './Components/Login/Register.jsx'
+import { AuthProvider, useAuth } from './auth/AuthContext.jsx'
+import { jwtDecode } from 'jwt-decode'
 
 function App() {
   const [count, setCount] = useState(0)
+  const {isAuthenticated} = useAuth();
+
+  //console.log(decodedToken.exp * 1000 < Date.now())
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element:  <Homepage />,
+      errorElement: <Homepage />,
+    },
+    {
+      path: '/Login',
+      element: !isAuthenticated ? <Login /> : <Homepage />,
+      //element: <Login />,
+  
+    },
+    {
+      path: '/Signup',
+      //element: <Register />,
+      element: !isAuthenticated ? <Login /> : <Homepage />,
+  
+    }
+  ]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <RouterProvider router={router} />
     </>
   )
 }
 
 export default App
+/*     <AuthProvider>    </AuthProvider>*/

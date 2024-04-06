@@ -1,12 +1,9 @@
 import express from 'express';
-//import { PrismaClient } from '@prisma/client'
 import {checkUser} from '../verifyInfo/checkUser.js';
 import bcrypt from 'bcrypt';
 import {User, Appointment} from '../DB/Schemas.js'
-//const connectToDatabase = require('./db');
 
 const router = express.Router();
-//const prisma = new PrismaClient();
 
 router.post("/", async (req, res) => {
   
