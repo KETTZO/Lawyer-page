@@ -7,7 +7,8 @@ in frontend file
 
 2.npm install
 3.npm install react-router-dom
-4.To run the project use: npm run dev
+4. npm install react-datepicker
+5.To run the project use: npm run dev
 
 In Backend file
 1.npm init -y

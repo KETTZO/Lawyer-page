@@ -1,0 +1,68 @@
+body {
+    background-color: white;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(12, 12, 12);
+    height: 100px;
+    padding: 20px 0; /* Espaciado interno del footer */
+    text-align: center; /* Centrar el texto dentro del footer */
+}
+
+.calendar-container {
+    background-color: rgb(196, 196, 196);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    height: 100vh;
+  }
+
+  .calendar-container button {
+    width: 500px;
+    
+    background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espacio interior */
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer; /* Cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  }
+  .calendar-container button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+  }
+  .calendar-container label {
+   font-size: 28px;
+  }
+  .calendar-container textarea {
+    width: 500px; /* Ancho completo del contenedor */
+    height: 150px; /* Altura fija */
+    padding: 10px; /* Espacio interior */
+    font-size: 16px; /* Tamaño de la fuente */
+    border: 1px solid #ccc; /* Borde del textarea */
+    border-radius: 5px; /* Borde redondeado */
+  }
+  .calendar-container textarea:focus {
+    border-color: #007bff; /* Cambia el color del borde al estar enfocado */
+  }
+  
+  .calendar-wrapper {
+    width: 100%;
+    max-width: 600px; /* Ajusta el ancho máximo del calendario según sea necesario */
+    margin-bottom: 20px; /* Espacio entre el h2 y el DatePicker */
+  }
+
+  .formulario {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+    background-color: green;
+}
+
+

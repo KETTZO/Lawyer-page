@@ -10,10 +10,10 @@ function Navigation_Bar() {
         <Link to='/' className='link'><h3>Lawyer Logo</h3></Link>
         </section>
         <nav>
-            <a>Home</a>
-            <a>News</a>
-            <a>Contact</a>
-            <a>About</a>
+            <a>Inicio</a>
+            <Link to="/Services" className='link'>Servicios</Link>
+            <a>Contacto</a>
+            <a>Nosotros</a>
         </nav>
         <section className='userButtons'>
           <Link to="/Login" className='link'>Iniciar Sesión</Link>
