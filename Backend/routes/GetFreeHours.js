@@ -31,7 +31,11 @@ router.get("/", async (req, res) => {
 
     let availableHours = [];
     for (let i = 8; i < 18; i++) { // Horas disponibles de 8 a 17
-        availableHours.push(i);
+        if (i != 13)
+          availableHours.push(i);
+        
+
+        
     }
 
     //se modifica el array con las horas disponbiles
