@@ -31,7 +31,7 @@ function App() {
     {
       path: '/Signup',
       //element: <Register />,
-      element: !isAuthenticated ? <Login /> : <Homepage />,
+      element: !isAuthenticated ? <Register /> : <Homepage />,
   
     }
   ]);
