@@ -10,15 +10,12 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const service = await Service.findOne({ status: 1 });
-
+    const services = await Service.find({ status: 1 });
+    
+    
     res.status(200).json({
       message: "Servicios obtenidos con éxito",
-      service:{
-        name: service.name,
-        desc: service.desc,
-        price: service.price,
-      },
+      Service: services
     });
 
   } catch (error) {

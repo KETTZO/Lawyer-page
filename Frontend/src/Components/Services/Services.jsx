@@ -1,11 +1,51 @@
 import Navigation_Bar from '../Navigation_Bar/Navigation_Bar'
 import ServiceCard from './ServiceCard'
+import { useState, useEffect } from 'react';
+import React from 'react';
+import { AuthProvider, useAuth } from '../../auth/AuthContext.jsx'
+
 
 function Services() {
+    const [services, setServices] = useState([]);
+    const [error, setError] = useState(null);
+    const servicesArray = Object.values(services);
+    const {isAuthenticated} = useAuth();
+
+  useEffect(() => {
+    const fetchService = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/Service', {
+            method: 'GET',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            
+        }); // Ruta de la API en tu servidor Express
+        if (!response.ok) {
+          throw new Error('No se pudo obtener la información del servicio');
+        }
+        else
+        {
+            
+        }
+        const data = await response.json();
+        setServices(data);
+        console.log(services);
+        servicesArray = Object.values(services);
+       
+      } catch (error) {
+        console.error('Error al obtener los servicios:', error);
+        setError(error.message);
+      }
+    };
+
+    fetchService();
+  }, []);
+
 
   return (
     <>
-    <Navigation_Bar/>
+    <Navigation_Bar isLoggedIn={isAuthenticated}/>
     <body>
         
         <div className='encabezado'>
@@ -14,46 +54,21 @@ function Services() {
             <p>En nuestro despacho jurídico, ofrecemos una amplia gama de servicios legales especializados en derecho familiar e inmobiliario para brindarte la tranquilidad y seguridad que necesitas en situaciones importantes de tu vida.</p>
         </div>
         <div className='servicios'>
-        <ServiceCard
-            title="Divorcio"
-            description="$2,500 MXN"
-            imageUrl="https://cdn-icons-png.freepik.com/512/3616/3616516.png"
+         {servicesArray[1] && Object.entries(servicesArray[1]).map(([key, service]) => (
+            <ServiceCard
+            title={service.name}
+            description={"$" + service.price + " MXN"}
+            imageUrl={service.desc}
         />
-        <ServiceCard 
-            title="Amparo"
-            description="$5,500 MXN"
-            imageUrl="https://media.istockphoto.com/id/1027738048/vector/scale-icon.jpg?s=612x612&w=0&k=20&c=6Z4hDKIOKFTuRVorZcbA0Qeg_-FTsibJiDLs-1q281Y="
-        />
-        <ServiceCard 
-            title="Custodia"
-            description="$2,500 MXN"
-            imageUrl="https://static-00.iconduck.com/assets.00/house-icon-512x471-t03b54sj.png"
-        />
-        <ServiceCard 
-            title="Inmobiliario"
-            description="$2,500 MXN"
-            imageUrl="https://static.vecteezy.com/system/resources/previews/009/767/092/original/family-icon-family-symbol-illustration-free-vector.jpg"
-        />
-        <ServiceCard 
-            title="Escrituraciones"
-            description="$2,500 MXN"
-            imageUrl="https://static.vecteezy.com/system/resources/previews/021/390/581/non_2x/history-writing-icon-simple-thin-line-outline-of-history-icons-vector.jpg"
-        />
-        <ServiceCard 
-            title="Juicios hipotecarios"
-            description="$2,500 MXN"
-            imageUrl="https://as1.ftcdn.net/v2/jpg/03/92/44/28/1000_F_392442807_YyIcaP5ggjTG3kfey6e8ngWzVBUVVktt.jpg"
-        />
-        <ServiceCard 
-            title="Compra-venta de inmuebles"
-            description="$2,500 MXN"
-            imageUrl="https://cdn-icons-png.flaticon.com/512/1191/1191557.png"
-        />
-        <ServiceCard 
-            title="Pensión custodia"
-            description="$2,500 MXN"
-            imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1RWdpcIBoiy_pLbuj-GBIFkT8GALuOpaiP08N0Tl2GA&s"
-        />
+         ))}
+        
+         
+        
+        
+        
+        
+        
+        
       
         
         </div>

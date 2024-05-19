@@ -4,6 +4,7 @@ import Navigation_Bar from '../Navigation_Bar/Navigation_Bar'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import API_URL from '../../auth/constants'
+import { AuthProvider, useAuth } from '../../auth/AuthContext.jsx'
 import useLogin from '../../hooks/useLogin.jsx';
 
 function Login() {
@@ -12,52 +13,20 @@ function Login() {
   const [password, setpassword] = useState('')
   const [error, setError] = useState(false)
   const {loginUser} = useLogin();
+  const {isAuthenticated} = useAuth();
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
     loginUser(email, password)
-    /*if(){
-      navigate("/");
-    }*/
-
-    //await loginUser(email, password);
-    /*if(email === '' || password === ''){
-      setError(true)
-      return
-    }*/
-    /*try {
-      console.log('entra')
-      const response = await fetch(`${API_URL}/Login`,{
-        method: 'POST',
-        headers:{
-            'Content-Type':'application/json'
-          },
-        body: JSON.stringify({
-          email,
-          password
-        })
-      });
-
-      if(response.ok){
-        console.log('El usuario ingresó correctamente');
-        setError(false);
-        navigate("/");
-      }
-      else{
-        console.log('Ocurrió un error');
-        setError(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }*/
+    
     
   }
 
   return (
     <>
-    <Navigation_Bar />
+    <Navigation_Bar isLoggedIn={isAuthenticated}/>
       <div className='login'> 
       <div className="cardlogin">
       

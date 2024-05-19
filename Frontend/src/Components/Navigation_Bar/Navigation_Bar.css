@@ -83,3 +83,44 @@ nav a.active {
   color: #FFD700;
   transition: 0.3s;
 }
+
+.profile-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 40px; /* Ajusta el tamaño según sea necesario */
+  height: 40px; /* Ajusta el tamaño según sea necesario */
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+
+  top: 10px; /* Ajusta la posición vertical según sea necesario */
+  right: 20px; /* Ajusta la posición horizontal según sea necesario */
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 75px; /* Coloca el menú debajo de la imagen */
+  right: 0;
+  background-color: #fff; /* Cambia el color de fondo según sea necesario */
+  border: 1px solid #ccc; /* Añade un borde al menú */
+  border-radius: 5px; /* Hace que los bordes del menú sean redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añade una sombra al menú */
+  z-index: 1; /* Asegura que el menú aparezca por encima de otros elementos */
+  padding: 10px; /* Añade relleno al menú para que los elementos no estén demasiado cerca del borde */
+}
+
+.dropdown-menu button,
+.dropdown-menu a {
+  display: block; /* Hace que los elementos dentro del menú se muestren como bloques */
+  margin-bottom: 5px; /* Añade un espacio entre los elementos */
+  color: #333; /* Cambia el color del texto según sea necesario */
+  text-decoration: none; /* Quita el subrayado del enlace */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
+}
+
+.dropdown-menu button:hover,
+.dropdown-menu a:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el ratón sobre los elementos */
+}

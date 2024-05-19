@@ -28,12 +28,11 @@ function App() {
       path: '/Login',
       element: !isAuthenticated ? <Login /> : <Homepage />,
       //element: <Login />,
-  
     },
     {
       path: '/Signup',
       //element: <Register />,
-      element: !isAuthenticated ? <Login /> : <Homepage />,
+      element: !isAuthenticated ? <Register /> : <Homepage />,
   
     },
     {
