@@ -28,6 +28,7 @@ const useLogin = () => {
         if(response.ok){
           console.log('El usuario ingresó correctamente');
           login(data.token, data.user);
+          console.log(data.user.name);
           //setError(false);
         }
         else{

@@ -11,27 +11,41 @@ router.post("/", async (req, res) => {
   const today = new Date();
   const ParsedDate = new Date(date + 'T00:00:00-05:00');
 
+  console.log(user, date, hour, service);
+  //1
   if(!!!user || !!!date || !!!service || !!!hour){
+    console.log("error1");
     return res.status(400).json({ error: 'Fields are required' });
+    
   }
-
+  //2
   if (ParsedDate <= today) {
+    console.log("error2");
     return res.status(400).json({ error: 'La fecha debe ser al menos un día después del día actual' });
+    
   }
-
+  //3
   if (!isWorkingDay(ParsedDate)) {
+    console.log(ParsedDate);
     return res.status(400).json({ error: 'No es un día laboral' });
+    
   }
+  //4
   // Verificar que la hora tenga minutos en ceros (ej. 5:00, 12:00, 15:00)
   const [onlyHour, minute] = hour.split(':');
   if (parseInt(minute) !== 0) {
+    console.log("error4");
     return res.status(400).json({ error: 'La hora debe tener minutos en ceros' });
+    
   }
 
+  //5
   // Verificar que la hora esté entre las 8 y las 17
   const parsedHour = parseInt(hour);
   if (parsedHour < 8 || parsedHour > 17) {
-    return res.status(400).json({ error: 'La hora debe estar entre las 8:00 y las 17:00' });
+    console.log("error5");
+    return res.status(400).json({ error: 'La hora debe estar entre las 10:00 y las 17:00' });
+    
   }
   
   try {
@@ -39,9 +53,11 @@ router.post("/", async (req, res) => {
     const fullDate = `${date}T${hour}:00.000Z`;
 
     const existingAppointment = await Appointment.findOne({ date: fullDate });
-
+    //6
     if (existingAppointment) {
-      return res.status(400).json({ error: 'Ya existe una cita en la misma fecha y hora' });
+      console.log("error6");
+      return res.status(400).json({ error: 'Ya existe una cita en la hora' });
+      
     }
 
     const newAppointment = new Appointment({
@@ -64,9 +80,10 @@ router.post("/", async (req, res) => {
   }
 });
 
-function isWorkingDay(date) {
+function isWorkingDay(dateString) {
+  const date = new Date(dateString); // Crear un objeto Date a partir del string
   const weekDay = date.getDay();
-  return weekDay >= 1 && weekDay <= 6; // Lunes a sábado
+  return weekDay >= 1 && weekDay <= 5; // Lunes a viernes (semana laboral típica)
 }
 
 export default router;

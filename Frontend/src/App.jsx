@@ -6,6 +6,7 @@ import Login from './Components/Login/Login.jsx'
 import Navigation_Bar from './Components/Navigation_Bar/Navigation_Bar.jsx'
 import Homepage from './Components/Homepage/Homepage.jsx'
 import Appointment from './Components/Appointments/Appointment'
+import MyAppointments from './Components/Appointments/MyAppointments'
 import Services from './Components/Services/Services.jsx'
 import {createBrowserRouter, RouterProvider, useNavigate} from 'react-router-dom'
 import Register from './Components/Login/Register.jsx'
@@ -43,7 +44,11 @@ function App() {
     {
        path: '/Appointment',
        element: !isAuthenticated ? <Login /> : <Appointment />,
-    }
+    },
+    {
+      path: '/MyAppointments',
+      element: !isAuthenticated ? <Login /> : <MyAppointments />,
+   }
   ]);
 
   return (

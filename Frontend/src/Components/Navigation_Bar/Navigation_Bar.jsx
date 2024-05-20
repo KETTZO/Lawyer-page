@@ -1,12 +1,13 @@
 import './Navigation_Bar.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-import { AuthProvider, useAuth } from '../../auth/AuthContext.jsx'
+import { useAuth } from '../../auth/AuthContext.jsx'
 
 function Navigation_Bar({isLoggedIn}) {
 
   const { logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { userData } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     
@@ -21,7 +22,8 @@ function Navigation_Bar({isLoggedIn}) {
         <Link to='/' className='link'><h3>Lawyer Logo</h3></Link>
         </section>
         <nav>
-            <a>Inicio</a>
+          <Link to='/'><a>Inicio</a></Link>
+            
             <Link to="/Services" className='link'>Servicios</Link>
             <a>Contacto</a>
             <a>Nosotros</a>
@@ -33,7 +35,8 @@ function Navigation_Bar({isLoggedIn}) {
               <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Imagen de perfil" className="profile-image" />
               {isMenuOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/profile">Mi perfil</Link>
+                  <Link to="/profile">{userData.name}</Link>
+                  <Link to="/MyAppointments">Mis citas</Link>
                   <button onClick={handleLogout}>Cerrar sesión</button>
                 </div>
               )}

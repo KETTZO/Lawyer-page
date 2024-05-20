@@ -8,7 +8,7 @@ import { AuthProvider, useAuth } from '../../auth/AuthContext.jsx'
 function Services() {
     const [services, setServices] = useState([]);
     const [error, setError] = useState(null);
-    const servicesArray = Object.values(services);
+    var servicesArray = Object.values(services);
     const {isAuthenticated} = useAuth();
 
   useEffect(() => {
