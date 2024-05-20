@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navigation_Bar from '../Navigation_Bar/Navigation_Bar'
-import './Appointment.css'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { AuthProvider, useAuth } from '../../auth/AuthContext.jsx'
@@ -38,8 +37,8 @@ function Appointment() {
           console.log(new Date (year, month, day, hours, minutes));
           
   });
-        console.log(typeof(citasArray));
-
+        
+        
         console.log(citasArray[1]);
       };
       const formatDate = (dateString) => {
@@ -104,6 +103,7 @@ function Appointment() {
             <AppointmentCard
             date={formatDate(cita.date)}
             service={cita.service}
+            status={cita.status}
         />
          ))} 
         
