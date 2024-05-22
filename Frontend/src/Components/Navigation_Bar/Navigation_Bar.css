@@ -101,6 +101,9 @@ nav a.active {
 
 .dropdown-menu {
   position: absolute;
+  padding: 10px 10px 10px 20px;
+  align-items: center;
+  width: 300px;
   top: 75px; /* Coloca el menú debajo de la imagen */
   right: 0;
   background-color: #fff; /* Cambia el color de fondo según sea necesario */
@@ -108,16 +111,31 @@ nav a.active {
   border-radius: 5px; /* Hace que los bordes del menú sean redondeados */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añade una sombra al menú */
   z-index: 1; /* Asegura que el menú aparezca por encima de otros elementos */
-  padding: 10px; /* Añade relleno al menú para que los elementos no estén demasiado cerca del borde */
+  
 }
 
-.dropdown-menu button,
-.dropdown-menu a {
-  display: block; /* Hace que los elementos dentro del menú se muestren como bloques */
+.dropdown-menu button{
+  display: flex; /* Hace que los elementos dentro del menú se muestren como bloques */
+  justify-content: center;
   margin-bottom: 5px; /* Añade un espacio entre los elementos */
   color: #333; /* Cambia el color del texto según sea necesario */
   text-decoration: none; /* Quita el subrayado del enlace */
   cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
+  border-radius: 15px;
+  padding: 5px 5px 5px 5px;
+
+}
+
+
+.dropdown-menu a {
+  padding: 5px 0 5px 0;
+  display: grid; /* Hace que los elementos dentro del menú se muestren como bloques */
+  align-items: center;
+  margin-bottom: 5px; /* Añade un espacio entre los elementos */
+  color: #333; /* Cambia el color del texto según sea necesario */
+  text-decoration: none; /* Quita el subrayado del enlace */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
+  text-align: center;
 }
 
 .dropdown-menu button:hover,

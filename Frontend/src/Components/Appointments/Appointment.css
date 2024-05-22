@@ -57,14 +57,16 @@ body {
     background-color: green;
 }
 
-
-  .card {
-    width: 250px;
-    height: 300px;
+h1 {
+  margin-left: 5%;
+}
+  .cardAppointment {
+    width: 600px;
+    height: 130px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     text-align: center;
     cursor: pointer;
     color: #000000;
@@ -86,12 +88,12 @@ body {
   padding-top: 5%;
   padding-bottom: 5%;
   margin-top: 5vh;
-  
-  display: flex;
+  align-items: center;
+  display: grid;
   justify-content: center;
   background-color: rgb(214, 214, 214);
   flex-wrap: wrap;
-  gap: 8em;
+  gap: 50px;
   min-height: fit-content;
 }
  

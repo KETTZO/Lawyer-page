@@ -26,7 +26,8 @@ function Navigation_Bar({isLoggedIn}) {
             
             <Link to="/Services" className='link'>Servicios</Link>
             <a>Contacto</a>
-            <a>Nosotros</a>
+            <Link to="/Nosotros"><a>Nosotros</a></Link>
+            
         </nav>
         <section className='userButtons'>
         {isLoggedIn ? (
