@@ -6,6 +6,7 @@ import Login from './Components/Login/Login.jsx'
 import Navigation_Bar from './Components/Navigation_Bar/Navigation_Bar.jsx'
 import Homepage from './Components/Homepage/Homepage.jsx'
 import Appointment from './Components/Appointments/Appointment'
+import AboutUs from './Components/Nosotros/Nosotros'
 import MyAppointments from './Components/Appointments/MyAppointments'
 import Services from './Components/Services/Services.jsx'
 import {createBrowserRouter, RouterProvider, useNavigate} from 'react-router-dom'
@@ -40,6 +41,10 @@ function App() {
       path: '/Services',
       element: <Services/>,
       //element: <Login />,
+    },
+    {
+      path: '/Nosotros',
+      element: <AboutUs/>,
     },
     {
        path: '/Appointment',

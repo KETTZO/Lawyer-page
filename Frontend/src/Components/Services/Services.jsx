@@ -3,7 +3,7 @@ import ServiceCard from './ServiceCard'
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { AuthProvider, useAuth } from '../../auth/AuthContext.jsx'
-
+import API_URL from '../../auth/constants'
 
 function Services() {
     const [services, setServices] = useState([]);
@@ -14,7 +14,7 @@ function Services() {
   useEffect(() => {
     const fetchService = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/Service', {
+        const response = await fetch(`${API_URL}/Service`, {
             method: 'GET',
             headers: {
                 'Content-Type':'application/json'

@@ -16,7 +16,7 @@ function AppointmentCard({ date, service, status }) {
     return (
         <>
         
-        <div className='cita-card'>
+        <div className='card'>
           
           <h3>{date}</h3>
           <p>{service}</p>

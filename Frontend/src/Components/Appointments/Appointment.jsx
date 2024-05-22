@@ -21,7 +21,7 @@ function Appointment() {
     useEffect(() => {
       const fetchAppointments = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/api/GetAppointments?userId=NO`, {
+          const response = await fetch(`${API_URL}/GetAppointments?userId=NO`, {
               method: 'GET',
               headers: {
                   'Content-Type':'application/json'

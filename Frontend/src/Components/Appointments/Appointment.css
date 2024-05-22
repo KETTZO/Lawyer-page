@@ -56,7 +56,18 @@ body {
 }
 
 
- 
+  .card {
+    width: 250px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    color: #000000;
+    flex-basis: calc(50%, 20px);
+  }
 
   footer {
     background-color: rgb(12, 12, 12);
@@ -74,11 +85,12 @@ body {
   padding-top: 5%;
   padding-bottom: 5%;
   margin-top: 5vh;
+  
   display: flex;
   justify-content: center;
   background-color: rgb(214, 214, 214);
   flex-wrap: wrap;
-  gap: 8em;
+  gap: 50px;
   min-height: fit-content;
 }
 
