@@ -185,7 +185,7 @@ function Appointment() {
     <Navigation_Bar isLoggedIn={isAuthenticated}/>
     <body>
         
-    <h1>Agendar cita</h1>
+    <h1 className='agendar-cita'>Agendar cita</h1>
     
         <div className="calendar-container">
             <h2>Seleccionar Fecha para la Cita</h2>
@@ -215,9 +215,7 @@ function Appointment() {
         </div>
     
     </body>
-    <footer>
-        <p>© 2024 Abogadas Asociadas - Derecho familiar e inmobiliaro.</p>
-    </footer>
+    
     
     </>
     

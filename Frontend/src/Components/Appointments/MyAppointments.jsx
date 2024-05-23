@@ -97,7 +97,7 @@ function Appointment() {
     <Navigation_Bar isLoggedIn={isAuthenticated}/>
     <body>
     
-    <h1 onClick={handlePrintDate}>Mis Citas</h1>
+    <h1 className='agendar-cita' onClick={handlePrintDate}>Mis Citas</h1>
         <div className='citas-container'>
             {citasArray[1] && Object.entries(citasArray[1]).map(([key, cita]) =>(
             <AppointmentCard

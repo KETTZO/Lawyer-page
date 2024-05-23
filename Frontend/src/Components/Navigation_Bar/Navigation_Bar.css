@@ -101,7 +101,10 @@ nav a.active {
 
 .dropdown-menu {
   position: absolute;
-  padding: 10px 10px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
   align-items: center;
   width: 300px;
   top: 75px; /* Coloca el menú debajo de la imagen */
@@ -125,6 +128,14 @@ nav a.active {
   padding: 5px 5px 5px 5px;
 
 }
+
+.dropdown-menu button:hover{
+  color: black;
+  background-color: green;
+}
+
+
+
 
 
 .dropdown-menu a {

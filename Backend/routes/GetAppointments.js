@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     
     if (userId != "NO")
     {
-      if ()
+      
       const appointments = await Appointment.find({ user: userId });
       res.status(200).json({
         message: "Citas obtenidas con éxito",

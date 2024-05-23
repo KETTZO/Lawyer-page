@@ -31,6 +31,9 @@ function Homepage() {
 </section>*/}
     </header>
         </div>
+        <footer>
+        <p>© 2024 Abogadas Asociadas - Derecho familiar e inmobiliaro.</p>
+    </footer>
     </>
   )
 }

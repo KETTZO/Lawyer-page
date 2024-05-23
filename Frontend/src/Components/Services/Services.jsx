@@ -61,16 +61,7 @@ function Services() {
             imageUrl={service.desc}
         />
          ))}
-        
-         
-        
-        
-        
-        
-        
-        
       
-        
         </div>
     </body>
     <footer>
